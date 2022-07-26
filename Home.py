@@ -76,9 +76,12 @@ def run():
 		busqueda mas personalizada a criterio del usuario.
 		
 		En la segunda entrega se realizará un gráfico de barras (con filtros)
-		mostrando los top N según criterio del editor (Editor's Choice).
+		mostrando los top N según criterio del editor (Editor's Choice).\n
 		
-		Fecha de creación: 19/07/2022
+		Fecha de creación: 19/07/2022 (Primera Entrega)\n
+		Fecha entrega final: 25/07/2022\n
+		- Se agrega "Comparador v2" donde se arreglan cosas de la primera entrega
+		- Se agrega "Editor's Choice" (2do idiom)
 	"""
 	)
 
