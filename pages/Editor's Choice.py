@@ -58,26 +58,27 @@ def run():
 	)
 	col1, col2, col3,col4 = st.columns(4)
 	
+	
 	with col1:
-		genero = st.selectbox('Choose a genre:',generosFinal)
+		generoEC = st.selectbox('Choose a genre:',generosFinal)
 	with col2:
-		categoriaPrecio = st.selectbox('Free to play or Paid:',["Both","Free to play","Paid"])
+		categoriaPrecioEC = st.selectbox('Free to play or Paid:',["Both","Free to play","Paid"])
 	with col3:
-		owners = st.selectbox('Number of owners:',ordenOwners)
+		ownersEC = st.selectbox('Number of owners:',ordenOwners)
 	with col4:
 		nResultados = st.slider(
 		"# Results", min_value=5 , max_value=100, step=1, value=10
 		)
 	
-	genero = "Todos" if genero == "All" else genero
-	categoriaPrecio = "Todos" if categoriaPrecio == "Both" else categoriaPrecio
-	owners = "Todos" if owners == "All" else owners
+	generoEC = "Todos" if generoEC == "All" else generoEC
+	categoriaPrecioEC = "Todos" if categoriaPrecioEC == "Both" else categoriaPrecioEC
+	ownersEC = "Todos" if ownersEC == "All" else ownersEC
 	
 	barSize = 30
 	chartFinal = alt.Chart(
-		dfEditorsChoice[(dfEditorsChoice.genero == genero)
-						& ((dfEditorsChoice.CategoriaPrecio == categoriaPrecio) | (categoriaPrecio == "Todos"))
-						& ((dfEditorsChoice.owners == owners) | (owners == "Todos"))
+		dfEditorsChoice[(dfEditorsChoice.genero == generoEC)
+						& ((dfEditorsChoice.CategoriaPrecio == categoriaPrecioEC) | (categoriaPrecioEC == "Todos"))
+						& ((dfEditorsChoice.owners == ownersEC) | (ownersEC == "Todos"))
 						]
 		,height = alt.Step(barSize*1.2)
 	).mark_bar(size = barSize).encode(
