@@ -39,6 +39,7 @@ LOGGER = get_logger(__name__)
 	
 
 def run():
+	st.legacy_caching.clear_cache()
 	st.set_page_config(
 		page_title="Recomendador de Videojuegos de Steam",
 		page_icon="🎮",
@@ -56,15 +57,18 @@ def run():
 		Disfruten!\n
 		"""
 	)
-	col1, col2, col3,col4 = st.columns(4)
+	col1, col2, col3,col4 = st.columns(4) 
 	
+	generoEC = "All"
+	categoriaPrecioEC = "Both"
+	ownersEC = "All"
 	
 	with col1:
-		generoEC = st.selectbox('Choose a genre:',generosFinal)
+		generoEC = st.selectbox('Choose a genre:',generosFinal,key=11)
 	with col2:
-		categoriaPrecioEC = st.selectbox('Free to play or Paid:',["Both","Free to play","Paid"])
+		categoriaPrecioEC = st.selectbox('Free to play or Paid:',["Both","Free to play","Paid"],key=22)
 	with col3:
-		ownersEC = st.selectbox('Number of owners:',ordenOwners)
+		ownersEC = st.selectbox('Number of owners:',ordenOwners,key=33)
 	with col4:
 		nResultados = st.slider(
 		"# Results", min_value=5 , max_value=100, step=1, value=10
@@ -76,7 +80,7 @@ def run():
 	
 	barSize = 30
 	chartFinalEC = alt.Chart(
-		dfEditorsChoice[(dfEditorsChoice.genero == generoEC)
+		dfEditorsChoice[((dfEditorsChoice.genero == generoEC))
 						& ((dfEditorsChoice.CategoriaPrecio == categoriaPrecioEC) | (categoriaPrecioEC == "Todos"))
 						& ((dfEditorsChoice.owners == ownersEC) | (ownersEC == "Todos"))
 						]

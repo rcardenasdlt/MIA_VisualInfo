@@ -61,14 +61,14 @@ def run():
 		"""
 	)
 	
-	col1, col2, col3 = st.columns(3)
+	col11, col22, col33 = st.columns(3)
 	
-	with col1:
-		genero = st.selectbox('Choose a genre:',["All"] + generosFinal)
-	with col2:
-		categoriaPrecio = st.selectbox('Free to play or Paid:',["Both","Free to play","Paid"])
-	with col3:
-		owners = st.selectbox('Number of owners:',["All"] + ordenOwners)
+	with col11:
+		genero = st.selectbox('Choose a genre:',["All"] + generosFinal,key=1)
+	with col22:
+		categoriaPrecio = st.selectbox('Free to play or Paid:',["Both","Free to play","Paid"],key=2)
+	with col33:
+		owners = st.selectbox('Number of owners:',["All"] + ordenOwners,key=3)
 	
 	genero = "Todos" if genero == "All" else genero
 	categoriaPrecio = "Todos" if categoriaPrecio == "Both" else categoriaPrecio
