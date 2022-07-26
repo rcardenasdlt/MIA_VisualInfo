@@ -75,7 +75,7 @@ def run():
 	ownersEC = "Todos" if ownersEC == "All" else ownersEC
 	
 	barSize = 30
-	chartFinal = alt.Chart(
+	chartFinalEC = alt.Chart(
 		dfEditorsChoice[(dfEditorsChoice.genero == generoEC)
 						& ((dfEditorsChoice.CategoriaPrecio == categoriaPrecioEC) | (categoriaPrecioEC == "Todos"))
 						& ((dfEditorsChoice.owners == ownersEC) | (ownersEC == "Todos"))
@@ -105,7 +105,7 @@ def run():
 	
 	
 	
-	st.altair_chart(chartFinal, use_container_width=True)
+	st.altair_chart(chartFinalEC, use_container_width=True)
 
 
 

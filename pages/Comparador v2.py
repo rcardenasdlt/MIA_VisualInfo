@@ -141,9 +141,9 @@ def run():
 		brushPrecio
 	).interactive()
 	
-	chartFinal = alt.vconcat(years, ratings, price )#.properties(spacing=5, padding  = 5)
+	chartFinalScatter = alt.vconcat(years, ratings, price )#.properties(spacing=5, padding  = 5)
 	
-	st.altair_chart(chartFinal, use_container_width=True)
+	st.altair_chart(chartFinalScatter, use_container_width=True)
 
 
 
